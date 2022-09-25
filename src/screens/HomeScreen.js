@@ -166,7 +166,7 @@ const HomeScreen = () => {
         <p className="text-gray-600">
           Developed With ❤ By{" "}
           <a
-            href="https://harshverma.netlify.app/"
+            href="https://complabs.in"
             className="font-medium text-techfiddle hover:text-techfiddle"
           >
             Tech Fiddle
