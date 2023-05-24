@@ -27,18 +27,18 @@ const HomeScreen = () => {
   const ACCESS_TOKEN = "f2db36d82319af2297836fd0b200ac57ba23cee6";
   const bit_ly = new BitlyClient(ACCESS_TOKEN);
 
-  const shortLink = (url) => {
+  const shortLink = (url: string) => {
     bit_ly
       .shorten(url)
-      .then((res) => {
+      .then((res: string) => {
         setIsShorten(true);
         setShortenLink(res.link);
         console.log(`Res: ${res.link}`);
       })
-      .catch((err) => console.error(err));
+      .catch((err: any) => console.error(err));
   };
 
-  const submitHandler = (e) => {
+  const submitHandler = (e: { preventDefault: () => void; }) => {
     e.preventDefault();
     shortLink(originalUrl);
   };
@@ -130,6 +130,7 @@ const HomeScreen = () => {
                     subject="A Micro Link by MicroURL"
                     body={`Tap on link:\n ${shortenLink}`}
                     className="focus:outline-none"
+                    url={`${shortenLink}`}
                   >
                     <EmailIcon size={32} round />
                   </EmailShareButton>
