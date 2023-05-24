@@ -13,6 +13,7 @@ import {
   WhatsappIcon,
   LinkedinIcon,
 } from "react-share";
+import NativeShare from "@src/components/NativeShare";
 const BitlyClient = require("bitly").BitlyClient;
 
 const HomeScreen = () => {
@@ -51,21 +52,21 @@ const HomeScreen = () => {
         <div className="text-center mt-12 md:mt-0">
           <img
             src="makelinktiny_logo.svg"
-            alt="makelinktiny_logo"
-            className="animate-bounce h-64 md:animate-pulse mx-auto md:h-full"
+            alt="graphic"
+            className="h-64 mx-auto md:h-full"
           />
         </div>
         <div className="text-left pt-14 md:pt-32 md:pl-7">
-          <p className="text-5xl md:text-6xl text-techfiddle font-bold">
+          <p className="text-5xl md:text-6xl text-blue-600 font-bold">
             MicroURL
           </p>
           <p className="mt-6 text-xl text-gray-500">
-            <span className="text-techfiddle">MicroURL</span> URL Shortener
+            <span className="text-blue-600">MicroURL</span> URL Shortener
             takes some long, unwieldy link and turns it into a shorter,
             easy-to-share one.
           </p>
           <form className="flex flex-col mt-5" onSubmit={submitHandler}>
-            <label htmlFor="url" className="text-lg text-techfiddle mb-2">
+            <label htmlFor="url" className="text-lg text-blue-600 mb-2">
               Long URL
             </label>
             <input
@@ -73,21 +74,22 @@ const HomeScreen = () => {
               placeholder="Enter the Looong URL..."
               id="url"
               required
-              className="px-5 py-3 rounded ring-2 ring-gray-200 transition duration-200 focus:outline-none focus:ring-techfiddle text-xl"
+              className="px-5 py-3 rounded ring-2 ring-gray-200 transition duration-200 focus:outline-none focus:ring-blue-600 text-xl"
               value={originalUrl}
               onChange={(e) => setOriginalUrl(e.target.value)}
             />
             <div className="flex flex-row">
               <button
                 type="submit"
-                className="px-6 py-4 bg-blue-500 text-white text-xl font-semibold transition duration-200 hover:bg-blue-600 focus:outline-none rounded-md mt-5 max-w-max"
+                className="px-6 py-4 bg-blue-600 text-white text-xl font-semibold transition duration-200 hover:bg-blue-600 focus:outline-none rounded-md mt-5 max-w-max"
               >
-                {"Shorten!"}
+                Shorten!
               </button>
+              <div className="px-4" />
               {isShorten && (
                 <button
                   onClick={resetHandler}
-                  className="px-6 py-4 bg-blue-500 text-white text-xl font-semibold transition duration-200 hover:bg-blue-600 focus:outline-none rounded-md mt-5 max-w-max"
+                  className="px-6 py-4 bg-blue-600 text-white text-xl font-semibold transition duration-200 hover:bg-blue-600 focus:outline-none rounded-md mt-5 max-w-max"
                 >
                   Reset
                 </button>
@@ -98,12 +100,13 @@ const HomeScreen = () => {
             <div className="px-7 py-5 bg-gray-100 mt-6 rounded  flex flex-col">
               <a
                 href={shortenLink}
-                className="font-semibold text-lg text-techfiddle"
+                className="font-semibold text-lg text-blue-600"
               >
                 {shortenLink}
               </a>
               <p className="text-gray-700 mt-4">Share Now:</p>
               <div className="flex flex-row mt-2 space-x-4">
+                <NativeShare />
                 <EmailShareButton
                   subject="A Micro Link by MicroURL"
                   body={`Tap on link:\n ${shortenLink}`}
@@ -114,7 +117,7 @@ const HomeScreen = () => {
 
                 <FacebookShareButton
                   url={`Tap on link:\n ${shortenLink}`}
-                  quote={"A Micro Link by MicroURL"}
+                  quote={`A Micro Link by MicroURL`}
                   className="focus:outline-none"
                 >
                   <FacebookIcon size={32} round />
@@ -122,7 +125,7 @@ const HomeScreen = () => {
 
                 <TwitterShareButton
                   url={`Tap on link:\n ${shortenLink}`}
-                  title={"A Micro Link by MicroURL"}
+                  title={`A Micro Link by MicroURL`}
                   className="focus:outline-none"
                 >
                   <TwitterIcon size={32} round />
@@ -130,7 +133,7 @@ const HomeScreen = () => {
 
                 <TelegramShareButton
                   url={`Tap on link:\n ${shortenLink}`}
-                  title={"A Micro Link by MicroURL"}
+                  title={`A Micro Link by MicroURL`}
                   className="focus:outline-none"
                 >
                   <TelegramIcon size={32} round />
@@ -138,7 +141,7 @@ const HomeScreen = () => {
 
                 <WhatsappShareButton
                   url={`Tap on link:\n ${shortenLink}`}
-                  title={"A Micro Link by MicroURL"}
+                  title={`A Micro Link by MicroURL`}
                   separator={":\n\n"}
                   className="focus:outline-none"
                 >
@@ -164,12 +167,12 @@ const HomeScreen = () => {
           <i className="fab fa-github" />
         </a>
         <p className="text-gray-600">
-          Developed With ❤ By{" "}
+          Developed With ❤ By {" "}
           <a
-            href="https://complabs.in"
-            className="font-medium text-techfiddle hover:text-techfiddle"
+            href="https://techfiddle.io"
+            className="font-medium text-blue-600 hover:text-blue-600"
           >
-            Tech Fiddle
+             Tech Fiddle
           </a>
         </p>
       </div>
